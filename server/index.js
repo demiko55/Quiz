@@ -1,8 +1,13 @@
+require('dotenv').config();
 const express = require('express');
 const bodyParser = require('body-parser');
+const app = express();
+const server = require('http').Server(app);
+const {Server} = require('socket.io');
+const io = new Server(server);
+
 const { Create, Update, getScore } = require('../database/controllers/quiz.js');
 const { Get, AddSource } = require('../database/controllers/source.js');
-
 
 var multer = require('multer');
 const storage = multer.diskStorage({
@@ -14,10 +19,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage })
 //const upload = multer({ dest: 'uploads/' });
-
-
-const app = express();
-const PORT = 3010;
 
 
 app.use(bodyParser.json());
@@ -67,8 +68,6 @@ app.get('/source', (req, res) => {
   })
 })
 
-
-
 //formData is submitted as multipart bodies,need to use module like multer to handle it.
 app.post('/source', upload.single('src'), (req, res) => {
   const formData = req.body;
@@ -83,6 +82,20 @@ app.post('/source', upload.single('src'), (req, res) => {
   })
 });
 
-app.listen(PORT, () => {
-  console.log(`listening on port ${PORT}`);
+// app.listen(PORT, () => {
+//   console.log(`listening on port ${PORT}`);
+// });
+
+server.listen(process.env.PORT, ()=>{
+  console.log(`listening on port ${process.env.PORT}`);
 });
+
+
+// var rooms = {};
+// //handle incoming socket connections
+// io.on('connection', function (socket) {
+// 	//log a new connection
+// 	console.log('a new user connected. ID: ',socket.id);
+//   socket.on('disconnect', function () {
+//     console.log('A user disconnected');
+//  });

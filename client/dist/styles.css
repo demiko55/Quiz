@@ -34,7 +34,8 @@ button {
   width: 100%;
 }
 
-button:hover {
+input:hover {
+  background-color: #3e8e41;
   opacity: 0.8;
 }
 
@@ -47,4 +48,9 @@ button:hover {
 }
 .answer{
   margin-top: 10%;
+}
+#finalPage{
+  width: 30vw;
+  height: 60px;
+  margin:50px auto;
 }

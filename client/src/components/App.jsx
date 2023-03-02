@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Quiz from './Quiz.jsx';
 
+
 const App = () => {
   const [status, setStatus] = useState(0);
   const [name, setName] = useState('');
@@ -15,7 +16,9 @@ const App = () => {
     axios.get(url, {params:{language: language, type: type}})
     .then((results)=>{
       setSource(results.data);
-      console.log('get from db', results.data);
+      // console.log('get from db', results.data);
+    }).catch((err) => {
+      console.log('get source from db err', err);
     });
   }
   useEffect(()=>{
@@ -31,7 +34,7 @@ const App = () => {
     formData.type = type;
     axios.post(url, formData)
       .then((results) => {
-        console.log('results after submit', results);
+        // console.log('results after submit', results);
         setId(results.data._id);
         setStatus(1);
       })
