@@ -49,7 +49,7 @@ app.put('/score', (req, res) => {
 });
 
 app.get('/score', (req, res)=>{
-  Update(req.query.id).then((data) => {
+  getScore(req.query.id).then((data) => {
     console.log('get score from db', data);
     res.status(200).send(data);
   }).catch((err) => {

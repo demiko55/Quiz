@@ -1,17 +1,24 @@
+html{
+  height: 100vh;
+}
 body {
   background: radial-gradient(#b6b1ed, #9999e7);
   width: 100%;
   margin: 0;
   padding: 0;
-  font-family: 'Roboto', sans-serif;
+  font-family: monospace;
+  font-size: large;
 }
 
 form {
   margin: 12% auto;
-  background-color: #f7f7f9;
-  border: 3px solid #f1f1f1;
+  background-color: #afe6ef;
+  border-radius: 10px;
+  box-shadow:10px 10px rgb(94, 98, 98);
   width: 380px;
   height: 390px;
+  padding: 12px;
+
 }
 
 
@@ -22,20 +29,24 @@ input, select {
   display: inline-block;
   border: 1px solid #ccc;
   box-sizing: border-box;
+  font-family: monospace;
+  border-radius: 10px;
 }
 
 button {
   background-color: #4CAF50;
   color: white;
   padding: 14px 20px;
-  margin: 8px 0;
+  margin: 20px 0;
   border: none;
   cursor: pointer;
   width: 100%;
+  font-family: monospace;
+  border-radius: 10px;
 }
 
-input:hover {
-  background-color: #3e8e41;
+input:hover, select:hover {
+  background-color: #a8e8e1;
   opacity: 0.8;
 }
 
@@ -52,5 +63,10 @@ input:hover {
 #finalPage{
   width: 30vw;
   height: 60px;
-  margin:50px auto;
+  margin:0  auto;
+  margin-top: 18vh;
+  color: aliceblue;
+}
+.title{
+  color: white;
 }

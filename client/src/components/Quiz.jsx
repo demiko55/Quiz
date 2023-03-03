@@ -49,15 +49,23 @@ const Quiz = ({ source, id }) => {
     if (source[page].answer == e.target.value) {
       //update the score in db
       updateScore();
+      e.target.style.background = 'green';
+    }else{
+      e.target.style.background = 'red';
     }
-    if (page < 10) {
-      setPage(page + 1);
-    }
+    setTimeout(function(){
+      if (page < 10) {
+        setPage(page + 1);
+      }
+    }, 500);
+
   }
 
   useEffect(() => {
     getScore();
   }, [page]);
+
+  console.log('page', page);
 
   return (
     <div>
@@ -67,7 +75,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay={handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -83,7 +91,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay={handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -99,7 +107,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay={handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -115,7 +123,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay={handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -131,7 +139,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay={handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -147,7 +155,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay = {handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -163,7 +171,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay = {handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -179,7 +187,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay = {handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -195,7 +203,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay = {handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
@@ -211,7 +219,7 @@ const Quiz = ({ source, id }) => {
           {
             source[page].type === 0 ? (<audio id="musicplayer" controls autoPlay onCanPlay = {handleTime}>
               <source src={path} />
-            </audio>) : (<h1>{source[page].src}</h1>)
+            </audio>) : (<div className='title'><h1>{source[page].src}</h1></div>)
           }
           <div className='answer'>
             <input type='button' onClick={handleAnswer} value={optionsArr[0]} />
